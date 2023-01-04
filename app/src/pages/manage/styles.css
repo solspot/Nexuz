@@ -1,0 +1,28 @@
+.relative {
+  font-size: 1.3rem !important;
+  background-color: #f9f5f3 !important;
+  color: #000 !important;
+  border: 3px solid #000 !important;
+  padding: 4px 24px 2px 24px !important;
+  box-shadow: -4px 4px Black;
+  font-family: 'Alfa Slab One Serif';
+  border-radius: 10px !important;
+  height: auto !important;
+}
+
+.relative:hover {
+  transform: translate(-1px, 1px);
+  box-shadow: -3px 3px Black;
+}
+
+.relative:active {
+  filter: brightness(105%);
+  transform: translate(-4px, 4px);
+  box-shadow: none;
+}
+
+.relative .wallet-adapter-dropdown-list {
+  top: auto !important;
+  bottom: 110%;
+  z-index: 1000;
+}

@@ -1,0 +1,39 @@
+
+/* Custom poiners */
+.custom-pointers .react-colorful__saturation-pointer {
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+}
+
+.custom-pointers .react-colorful__hue-pointer,
+.custom-pointers .react-colorful__alpha-pointer {
+    width: 16px;
+    border-radius: 3px;
+}
+
+/* Custom layout */
+.custom-layout .react-colorful {
+    width: 100%;
+}
+
+.custom-layout .react-colorful__saturation {
+    margin: 15px 0;
+    border-radius: 10px;
+    border-bottom: none;
+}
+
+.custom-layout .react-colorful__hue {
+    order: -1;
+}
+
+.custom-layout .react-colorful__hue {
+    height: 14px;
+    border-radius: 5px;
+}
+
+.custom-layout .react-colorful__hue-pointer {
+    width: 15px;
+    height: 20px;
+    border-radius: 3px;
+}

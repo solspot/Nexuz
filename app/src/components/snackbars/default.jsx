@@ -1,0 +1,67 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/display-name */
+import React, { forwardRef, useCallback } from 'react';
+
+// libs
+import { useSnackbar, SnackbarContent } from 'notistack';
+import { Typography, styled } from '@mui/material';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
+
+const CardStyled = styled(Card)(() => ({
+  backgroundColor: '#F7F4F1',
+  borderRadius: 14,
+  minWidth: '100%',
+  width: '100%',
+  minHeight: '100%',
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center'
+}));
+
+const CardActionStyled = styled(CardActions)(() => ({
+  minWidth: '100%',
+  width: '100%',
+  minHeight: '100%',
+  display: 'flex',
+  alignItems: 'center'
+}));
+
+const DefaultSnackbar = forwardRef((props, ref) => {
+  const { closeSnackbar } = useSnackbar();
+
+  const handleDismiss = useCallback(() => {
+    closeSnackbar(props.id);
+  }, [props.id, closeSnackbar]);
+
+  return (
+    <SnackbarContent ref={ref} sx={{ minWidth: '344px !important' }}>
+      <CardStyled>
+        <CardActionStyled sx={{ p: 2, pl: 2.5 }}>
+          <Typography
+            variant="subtitle2"
+            color="black"
+            sx={{ mr: 'auto', fontSize: '.9rem', mt: 0.2 }}>
+            {props.message}
+          </Typography>
+          <div style={{ marginLeft: 'auto' }}>
+            <IconButton
+              sx={{
+                padding: '8px 8px',
+                transform: 'rotate(0deg)',
+                transition: 'all .2s',
+                color: 'black'
+              }}
+              onClick={handleDismiss}>
+              <CloseIcon />
+            </IconButton>
+          </div>
+        </CardActionStyled>
+      </CardStyled>
+    </SnackbarContent>
+  );
+});
+
+export default DefaultSnackbar;
