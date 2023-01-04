@@ -3,7 +3,7 @@ const express = require('express');
 const axios = require('axios');
 require('dotenv').config();
 
-const { PROXY_PORT = 8085 } = process.env;
+const { PROXY_PORT = 8080 } = process.env;
 
 
 const app = express();
