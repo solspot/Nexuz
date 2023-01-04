@@ -1,8 +1,10 @@
-import express from 'express';
-import * as dotenv from 'dotenv'
-import axios from 'axios';
-dotenv.config()
-const { GITBOOK_PORT = 3200 } = process.env;
+
+
+const express = require('express');
+const axios = require('axios');
+require('dotenv').config();
+
+const { GITBOOK_PORT = 8085 } = process.env;
 
 
 const app = express();
