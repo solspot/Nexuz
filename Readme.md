@@ -2,6 +2,9 @@
 
 Nexuz is a decentralized application that allows you to create landing pages and stores the data in the Solana blockchain. 
 
+## Documentation
+See the full documentation at [our Gitbook](https://docs.nexuz.me)
+
 
 ## Access
 
