@@ -22,13 +22,15 @@ const Root = styled('div')(({ palette }) => ({
 }));
 
 const ImgStyled = styled('div')(({ theme, palette, src }) => ({
-  height: 170,
-  width: 170,
+  height: 180,
+  width: 180,
   backgroundSize: 'cover',
   backgroundPosition: 'center',
   backgroundImage: 'url(' + src + ')',
   backgroundColor: palette?.background,
-  marginTop: 50,
+  border: '15px solid',
+  borderColor: palette?.background,
+  marginTop: 55,
   borderRadius: 100,
   zIndex: 5,
   padding: 8,
@@ -202,7 +204,7 @@ const DisplayRoot = () => {
         <Typography
           accent={profile.color}
           variant="h5"
-          sx={{ color: profile?.palette.text, mt: 2, fontWeight: 600 }}>
+          sx={{ color: profile?.palette.text, mt: 2, fontWeight: 600, fontSize: '2rem' }}>
           {profile.displayName}
         </Typography>
         <Typography
@@ -212,9 +214,11 @@ const DisplayRoot = () => {
             opacity: 0.7,
             mt: 0.5,
             mb: 4,
-            maxWidth: 300,
+            maxWidth: 500,
             lineHeight: 1.2,
-            textAlign: 'center'
+            textAlign: 'center',
+            pl: '5%',
+            pr: '5%'
           }}>
           {profile.bio}
         </Typography>
