@@ -23,7 +23,7 @@ You can also access Nexuz with our reverse proxy:
 https://nexuz.me
 ```
 
-Solana Program ID:
+Solana Program:
 
 
 ```
