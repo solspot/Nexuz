@@ -1,4 +1,3 @@
-
 const express = require('express');
 const axios = require('axios');
 require('dotenv').config();
@@ -17,11 +16,11 @@ app.get('*', async (_req, res) => {
     let realUrl;
 
     try {
-        if (requestedPath === '/') {
-            realUrl = staticHostingUrl;
+        if (requestedPath.startsWith("/assets/")) {
+            realUrl = `${staticHostingUrl}${requestedPath}`;
         }
         else {
-            realUrl = staticHostingUrl + requestedPath;
+            realUrl = `${staticHostingUrl}/index.html`;
         }
 
         let proxiedData = await axios.get(realUrl, { headers: { "Accept-Encoding": "gzip,deflate,compress" } });
@@ -38,6 +37,7 @@ app.get('*', async (_req, res) => {
         res.send(proxiedData.data);
     }
     catch (err) {
+        console.log(err);
         res.status(404).send('Resource not found');
     }
 });
