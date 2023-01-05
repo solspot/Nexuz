@@ -11,7 +11,7 @@ See the full documentation at [our Gitbook](https://docs.nexuz.me)
 There is a version of Nexuz that we hosted on Arweave that is directly accesable at:
 
 ```
-https://4xddeaj2c3fopgkhbrd7uojoud43zenoiuxakggkoyhr5lezzfea.arweave.net/5cYyAToWyueZRwxH-jkuoPm8ka5FLgUYynYPHqyZyUg
+https://arweave.net/bbRutD1WX793T99-A7xYyf-jIvEBJDMyWKdk5sNcyfM
 ```
 
 To access the frontend directly on Arweave you will need to either host your own reverse Proxy or change the frontend to hosting not at the root level of a domain. 
