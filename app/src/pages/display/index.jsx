@@ -30,8 +30,8 @@ const ImgStyled = styled('div')(({ theme, palette, src }) => ({
   backgroundColor: palette?.background,
   border: '15px solid',
   borderColor: palette?.background,
-  marginTop: 55,
   borderRadius: 100,
+  marginTop: 55,
   zIndex: 5,
   padding: 8,
   [theme.breakpoints.down('sm')]: {
@@ -204,7 +204,12 @@ const DisplayRoot = () => {
         <Typography
           accent={profile.color}
           variant="h5"
-          sx={{ color: profile?.palette.text, mt: 2, fontWeight: 600, fontSize: '2rem' }}>
+          sx={{
+            color: profile?.palette.text,
+            mt: profile?.pfp === '' ? 25.5 : 2,
+            fontWeight: 600,
+            fontSize: '2rem'
+          }}>
           {profile.displayName}
         </Typography>
         <Typography
