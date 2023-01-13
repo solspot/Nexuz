@@ -8,6 +8,7 @@ import { useWallet } from '@solana/wallet-adapter-react';
 // local
 import useCustomSnackbar from 'components/snackbars/useCustomSnackbar.jsx';
 import { updateProfile } from 'services/interface';
+import { createTextOffset } from 'services/utils';
 
 const Button = styled(ButtonBase)(({ palette }) => ({
   position: 'absolute',
@@ -70,7 +71,8 @@ const SaveButton = ({ original, profile, setOriginal }) => {
         onClick={() => handleSave()}
         sx={{
           opacity: changed ? 1 : 0.35,
-          backgroundColor: changed && alpha(profile?.palette.accent, 0.7)
+          backgroundColor: changed && alpha(profile?.palette.accent, 0.7),
+          color: changed && createTextOffset(profile?.palette.accent)
         }}>
         Save
       </Button>
