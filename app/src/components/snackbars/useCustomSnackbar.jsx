@@ -6,7 +6,7 @@ import { useSnackbar } from 'notistack';
 // local
 import LoadingSnackbar from './loading.jsx';
 import SuccessSnackbar from './success.jsx';
-import ArweaveSuccessSnackbar from './arweaveSuccess.jsx';
+import URLSuccessSnackbar from './urlSuccess.jsx';
 import ErrorSnackbar from './error.jsx';
 import DefaultSnackbar from './default.jsx';
 
@@ -38,12 +38,10 @@ function useCustomSnackbar() {
             content: (key, message) => <SuccessSnackbar id={key} message={message} />
           });
           return;
-        case 'arweave-url':
+        case 'success-url':
           enqueueSnackbar(_message, {
             persist: _persist,
-            content: (key, message) => (
-              <ArweaveSuccessSnackbar id={key} message={message} url={_url} />
-            )
+            content: (key, message) => <URLSuccessSnackbar id={key} message={message} url={_url} />
           });
           return;
         case 'error':

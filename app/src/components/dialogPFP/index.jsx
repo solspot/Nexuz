@@ -271,7 +271,7 @@ const PfpDialog = ({ profile, setProfile }) => {
       setOpen(false);
 
       sendSnackbar(`Success! Save your profile to confirm change.`, {
-        variant: 'arweave-url',
+        variant: 'success-url',
         url: `https://arweave.net/${uploadRes?.data.id}`,
         persist: true
       });

@@ -58,11 +58,11 @@ const SuccessSnackbar = forwardRef((props, ref) => {
               sx={{ mr: 'auto', fontSize: '.9rem', mt: 0.2 }}>
               {props.message}
             </Typography>
-            <a href={props.url} target="_blank" rel="noreferrer">
+            <a href={props.url} target="_blank" rel="noreferrer" style={{ width: '100%' }}>
               <Typography
                 variant="subtitle2"
                 color="black"
-                sx={{ mr: 2, fontSize: '.75rem', maxWidth: 450 }}>
+                sx={{ ml: 0, fontSize: '.75rem', maxWidth: 450 }}>
                 {props.url}
               </Typography>
             </a>

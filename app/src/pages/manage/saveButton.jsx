@@ -46,8 +46,10 @@ const SaveButton = ({ original, profile, setOriginal }) => {
       if (saveRes?.context?.slot) {
         setOriginal({ ...profile, links: JSON.parse(JSON.stringify(profile.links)) });
         closeSnackbar();
-        sendSnackbar('Profile updated!', {
-          variant: 'success'
+        sendSnackbar('Profile updated! View now 🔽', {
+          variant: 'success-url',
+          url: `https://nexuz.me/${profile?.username}`,
+          persist: true
         });
       } else {
         throw new Error('Unable to update profile.');
