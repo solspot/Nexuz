@@ -71,7 +71,7 @@ const SaveButton = ({ original, profile, setOriginal }) => {
         onClick={() => handleSave()}
         sx={{
           opacity: changed ? 1 : 0.35,
-          backgroundColor: changed && alpha(profile?.palette.accent, 0.7),
+          backgroundColor: changed && alpha(profile?.palette.accent, 0.95),
           color: changed && createTextOffset(profile?.palette.accent)
         }}>
         Save
