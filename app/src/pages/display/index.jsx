@@ -10,6 +10,7 @@ import Column from 'components/column';
 import { loadProfileByUsername } from 'services/interface';
 import { formatProfileAccountDisplay } from 'services/utils';
 import NexuzLogo from 'assets/logo';
+import LoadingSpinner from 'components/LoadingSpinner';
 
 const Root = styled('div')(({ palette }) => ({
   width: '100%',
@@ -83,9 +84,10 @@ const LinkItem = styled(ButtonBase)(({ theme, palette }) => ({
 
 const TextItem = styled(Typography)(({ theme }) => ({
   color: theme.palette.text.main,
-  fontSize: '5rem',
+  fontSize: '4rem',
   lineHeight: 1.1,
   fontFamily: theme.font.display,
+  marginTop: '40vh',
   [theme.breakpoints.down('md')]: {
     margin: 0,
     width: '100%',
@@ -93,7 +95,7 @@ const TextItem = styled(Typography)(({ theme }) => ({
     fontWeight: 400,
     zIndex: 10,
     padding: '10px 0px',
-    marginTop: 10,
+    marginTop: '40vh',
     textAlign: 'center',
     letterSpacing: 1.1
   }
@@ -108,12 +110,12 @@ const LogoWrapper = styled('div')(() => ({
 }));
 
 const Logo = styled(NexuzLogo)(({ palette }) => ({
-  fill: palette.text,
+  fill: palette?.text ? palette?.accent : '#fff',
   cursor: 'pointer',
   marginLeft: 'auto',
   marginRight: 'auto',
   maxHeight: 70,
-  filter: 'drop-shadow(' + palette.accent + ' 1.5px 1.5px)'
+  filter: 'drop-shadow(' + palette?.accent ? palette?.accent : '#fff' + ' 1.5px 1.5px)'
 }));
 
 const DisplayRoot = () => {
@@ -149,14 +151,17 @@ const DisplayRoot = () => {
   if (loading)
     return (
       <Root sx={{ justifyContent: 'center', textAlign: 'center' }}>
-        <TextItem>Loading...</TextItem>
+        <LoadingSpinner sx={{ height: 200 }} />
       </Root>
     );
 
   if (!profile)
     return (
       <Root sx={{ justifyContent: 'center', textAlign: 'center' }}>
-        <TextItem>{searchedUsername} does not exist.</TextItem>
+        <TextItem>{searchedUsername} is not a user</TextItem>
+        <LogoWrapper onClick={() => navigate('/')}>
+          <Logo palette={profile?.palette} />
+        </LogoWrapper>
       </Root>
     );
 
@@ -230,6 +235,8 @@ const DisplayRoot = () => {
         {profile.links.map((item) => (
           <a
             href={'https://' + item.url}
+            target="_blank"
+            rel="noreferrer"
             style={{ all: 'unset', textDecoration: 'none', width: '100%' }}
             key={item.id}>
             <LinkItem sx={renderItemStyles(profile?.palette.design)} palette={profile.palette}>
