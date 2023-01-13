@@ -89,7 +89,7 @@ const AccountButton = ({ profile, setProfile, logout, original, setOriginal }) =
 
   const redirectUser = () => {
     if (profile.username === original.username && profile.username !== '') {
-      navigate('/' + profile.username);
+      window.open('https://nexuz.me/' + profile?.username);
     }
   };
 
